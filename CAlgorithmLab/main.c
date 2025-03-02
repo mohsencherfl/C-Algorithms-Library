@@ -16,6 +16,7 @@
     void convert_seconds();
     void calculate_travel_time();
     void divisible_or_indivisible();
+    void finding_leap_year_gregorian_calendar();
 
 
 int main()
@@ -33,7 +34,8 @@ int main()
      get_fractional_part();
      convert_seconds();
      calculate_travel_time();
-    divisible_or_indivisible();
+     divisible_or_indivisible();
+     finding_leap_year_gregorian_calendar();
 }
 
 
@@ -345,3 +347,30 @@ void divisible_or_indivisible() {
     else
         printf("Indivisible \n");
 }
+
+void finding_leap_year_gregorian_calendar() {
+    int year;
+
+    printf("Enter a year: ");
+    scanf("%d", &year);
+
+    // A less efficient and optimized solution
+//    if(year % 100 == 0 && year % 400 == 0)
+//        printf("Leap year \n");
+//    else if(year % 4 == 0 && year % 100 != 0)
+//        printf("Leap year \n");
+//    else
+//        printf("Not a leap year \n");
+
+
+    // A more efficient and optimized solution
+    if(year % 400 == 0)
+        printf("Leap year \n");
+    else if(year % 100 == 0)
+        printf("Not a leap year \n");
+    else if(year % 4 == 0)
+        printf("Leap year \n");
+    else
+        printf("Not a leap year \n");
+}
+
