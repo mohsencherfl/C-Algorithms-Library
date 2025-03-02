@@ -354,16 +354,14 @@ void finding_leap_year_gregorian_calendar() {
     printf("Enter a year: ");
     scanf("%d", &year);
 
-    // A less efficient and optimized solution
-//    if(year % 100 == 0 && year % 400 == 0)
-//        printf("Leap year \n");
-//    else if(year % 4 == 0 && year % 100 != 0)
+    // A shorter but slightly a harder solution due to the mixed logical operators
+//    if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
 //        printf("Leap year \n");
 //    else
 //        printf("Not a leap year \n");
 
 
-    // A more efficient and optimized solution
+    // A more readable and logically clear solution
     if(year % 400 == 0)
         printf("Leap year \n");
     else if(year % 100 == 0)
@@ -372,5 +370,6 @@ void finding_leap_year_gregorian_calendar() {
         printf("Leap year \n");
     else
         printf("Not a leap year \n");
+
 }
 
