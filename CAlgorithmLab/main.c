@@ -15,6 +15,7 @@
     void get_fractional_part();
     void convert_seconds();
     void calculate_travel_time();
+    void divisible_or_indivisible();
 
 
 int main()
@@ -32,6 +33,7 @@ int main()
      get_fractional_part();
      convert_seconds();
      calculate_travel_time();
+    divisible_or_indivisible();
 }
 
 
@@ -324,4 +326,22 @@ void calculate_travel_time() {
     printf("Minutes: %d \n", minutes);
     printf("Seconds: %d \n", seconds);
 
+}
+
+void divisible_or_indivisible() {
+    int num1, num2, num3;
+
+    printf("Enter first number: ");
+    scanf("%d", &num1);
+    printf("Enter second number: ");
+    scanf("%d", &num2);
+    printf("Enter third number: ");
+    scanf("%d", &num3);
+
+    if(num1 == 0 || num2 == 0 || num3 == 0)
+        printf("Invalid arithmetic operation (division by 0!).");
+    else if(num1 % num2 == 0 || num2 % num1 == 0 && num1 % num3 == 0 || num3 % num1 == 0 && num2 % num3 == 0 || num3 % num2 == 0)
+        printf("Divisible \n");
+    else
+        printf("Indivisible \n");
 }
