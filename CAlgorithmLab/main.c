@@ -18,7 +18,7 @@
     void divisible_or_indivisible();
     void finding_leap_year_gregorian_calendar();
     void finding_next_day();
-
+    void print24HourFormat();
 
 int main()
 {
@@ -38,9 +38,8 @@ int main()
      divisible_or_indivisible();
      finding_leap_year_gregorian_calendar();
      finding_next_day();
+     print24HourFormat();
 }
-
-
 
 void calculator_with_switch() {
     int num_1, num_2;
@@ -424,6 +423,34 @@ void finding_next_day() {
         printf("%d-%02d-%02d \n", year, month, day);
     }
 
+}
+
+void print24HourFormat() {
+  int totalSeconds, hour, minute, second;
+
+  printf("Enter total seconds: ");
+  scanf("%d", &totalSeconds);
+
+  hour = totalSeconds / 3600;
+  totalSeconds -= hour * 3600;
+  minute = totalSeconds / 60;
+  second = totalSeconds % 60;
+
+
+    // First solution
+//  if(hour < 10)
+//    printf("0");
+//  printf("%d:", hour);
+//  if(minute < 10)
+//    printf("0");
+//  printf("%d:", minute);
+//  if(second < 10)
+//    printf("0");
+//  printf("%d \n", second);
+
+
+    // A more efficient and optimized solution
+  printf("%02d:%02d:%02d\n", hour, minute, second);
 }
 
 
