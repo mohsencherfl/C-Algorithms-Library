@@ -19,6 +19,7 @@
     void finding_leap_year_gregorian_calendar();
     void finding_next_day();
     void print24HourFormat();
+    void average_grade_calculator();
 
 int main()
 {
@@ -39,6 +40,7 @@ int main()
      finding_leap_year_gregorian_calendar();
      finding_next_day();
      print24HourFormat();
+     average_grade_calculator();
 }
 
 void calculator_with_switch() {
@@ -465,7 +467,34 @@ void print24HourFormat() {
   printf("%02d:%02d:%02d\n", hour, minute, second);
 }
 
+void average_grade_calculator() {
 
+    float grade, sum = 0;
+    float average = 0;
+    int counter = 0;
+
+    printf("Enter your grades, or enter (-1) to exit: \n");
+
+    while(1) {
+        printf("Course %d: ", counter+1);
+        scanf("%f", &grade);
+
+        if(grade == -1)     // Check for the termination condition
+            break;
+
+        if(counter < 50) {      // Setting limits to the number of grades
+            sum += grade;
+            counter++;
+            average = sum / counter;
+        }
+        else {
+            printf("You have entered the maximum number of grades (50). \n");
+            break;
+        }
+    }
+    printf("You have entered %d grades. \n", counter);
+    printf("Final average: %.2f \n", average);
+}
 
 
 
