@@ -55,16 +55,21 @@ void calculator_with_switch() {
         printf("Invalid input. Please enter an integer: ");
         while(getchar() != '\n');   // Clear input buffer
     }
-    printf("Enter one of the following mathematical operators: \n\t\t + \t - \t * \t / \t %% \n");
+    printf("Enter one of the following mathematical operators: \n\t\t + \t - \t * \t / \t ^ \t %% \n");
     while(1) {      // Infinite loop until valid input is received
-        if(scanf(" %c", &sign) == 1 && sign == '+' || sign == '-' || sign == '*' || sign == '/' || sign == '%') {
+        if(scanf(" %c", &sign) == 1 && sign == '+' || sign == '-' || sign == '*' || sign == '/' || sign == '^' || sign == '%') {
             break;      // Exit the loop when a valid operator is entered
         }
-        printf("Invalid input. Please enter a valid operator: +, -, *, /, %% \n");
+        printf("Invalid input. Please enter a valid operator: +, -, *, /, ^, %% \n");
         while(getchar() != '\n');       // Clear the buffer
     }
 
+    int pow = num_2;
+    int result = 1;
+
     switch(sign) {
+
+
         case '+':
             printf("%d + %d = %d \n", num_1, num_2, num_1 + num_2);
             break;
@@ -79,6 +84,13 @@ void calculator_with_switch() {
                 printf("Error: Division by zero is not allowed. \n");
             else
                 printf("%d / %d = %.2f \n",num_1, num_2, (float)num_1 / num_2);
+            break;
+        case '^':
+            while(pow > 0) {
+                result *= num_1;
+                pow--;
+            }
+            printf("%d ^ %d = %d \n", num_1, num_2, result);
             break;
         case '%':
             if(num_2 == 0)
