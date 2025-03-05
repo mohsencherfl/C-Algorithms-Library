@@ -20,6 +20,7 @@
     void finding_next_day();
     void print24HourFormat();
     void average_grade_calculator();
+    void quickMoney_or_centDoubling();
 
 int main()
 {
@@ -41,6 +42,7 @@ int main()
      finding_next_day();
      print24HourFormat();
      average_grade_calculator();
+     quickMoney_or_centDoubling();
 }
 
 void calculator_with_switch() {
@@ -495,6 +497,48 @@ void average_grade_calculator() {
     printf("You have entered %d grades. \n", counter);
     printf("Final average: %.2f \n", average);
 }
+
+void quickMoney_or_centDoubling() {
+
+    int i;
+    int quick_money = 1000000;
+    float total_amount = 0.01;      // Day #1
+
+    for(i = 2; i <= 30; i++) {      // Skipping the first day by assigning 2 to i
+        total_amount*= 2;
+
+        if(total_amount >= quick_money) {
+            printf("In %d days you will get %.2f dollars. \n", i, total_amount);
+            break;      // Breaking out of the loop when we reach a specific total amount
+        }
+    }
+
+    for(; i < 30; i++) {        // Continuing rest of the previous loop to get the total amount after 30 days
+        total_amount *= 2;
+    }
+    // Print the final amount after 30 days
+    printf("In %d days you will get %.2f dollars. \n", i, total_amount);
+
+
+
+    // Second solution using only one loop
+
+//    int thresholdReached = 0;   // Flag to indicate if the threshold has been reached
+//    for(i = 1; i <= 30; i++) {
+//        if(i > 1) {
+//            total_amount *= 2;
+//        }
+//
+//        if(!thresholdReached && total_amount >= quick_money) {
+//            printf("In %d days you will get %.2f dollars. \n", i, total_amount);
+//            thresholdReached = 1;       // Update the flag to indicate threshold is reached
+//        }
+//    }
+//
+//    // Print the final amount after 30 days
+//    printf("In %d days you will get %.2f dollars. \n", 30, total_amount);
+}
+
 
 
 
