@@ -22,6 +22,7 @@
     void average_grade_calculator();
     void quickMoney_or_centDoubling();
     void createNumberPyramid();
+    void sumOfDivisibleNumbers();
 
 int main()
 {
@@ -45,6 +46,7 @@ int main()
      average_grade_calculator();
      quickMoney_or_centDoubling();
      createNumberPyramid();
+     sumOfDivisibleNumbers();
 }
 
 void calculator_with_switch() {
@@ -596,7 +598,31 @@ void createNumberPyramid() {
 
 }
 
+void sumOfDivisibleNumbers() {
 
+
+    int num, sum;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    // An inefficient solution
+/*    for(int i = 1; i <= num; i++) {
+        if(i % 3 == 0 && i % 5 == 0) {
+            printf("%d can be divided by both 3 and 5 \n", i);
+            sum = sum + i;
+        }
+    }
+    printf("Sum of the divisible numbers: %d \n", sum); */
+
+
+    // An optimized solution
+    for(int i = 15; i <= num; i+=15) {
+        printf("%d can be divided by both 3 and 5 \n", i);
+        sum = sum + i;
+    }
+    printf("Sum of the divisible numbers: %d \n", sum);
+}
 
 
 
