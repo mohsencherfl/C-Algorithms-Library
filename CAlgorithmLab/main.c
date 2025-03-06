@@ -21,6 +21,7 @@
     void print24HourFormat();
     void average_grade_calculator();
     void quickMoney_or_centDoubling();
+    void createNumberPyramid();
 
 int main()
 {
@@ -43,6 +44,7 @@ int main()
      print24HourFormat();
      average_grade_calculator();
      quickMoney_or_centDoubling();
+     createNumberPyramid();
 }
 
 void calculator_with_switch() {
@@ -539,7 +541,32 @@ void quickMoney_or_centDoubling() {
 //    printf("In %d days you will get %.2f dollars. \n", 30, total_amount);
 }
 
+void createNumberPyramid() {
+    int num, rowMaxValue, temp;
+    int row, counter, blankSpaces, currentValue = 1;
 
+    printf("Enter number: ");
+    scanf("%d", &num);
+
+    temp = num;    // We don't want to change (num). We'll need it's original value in the code.
+
+    for(row = 1; temp > 0 ; row++) {    // Acquiring the number of rows
+        temp -= row;
+        if(temp <= 0)
+            break;    // Preventing incrementation of (row)
+    }
+
+    for(counter = 1; row > 0; row--) {
+        rowMaxValue += counter++;    // This will get the last value in a row
+        for(blankSpaces = 1; blankSpaces < row; blankSpaces++) {    // Blank spaces in a row
+            printf(" ");
+            }
+        for(; currentValue <= rowMaxValue && currentValue <= num; currentValue++) {    // Making sure we print up to the given number
+            printf("%d ", currentValue);
+        }
+        printf("\n");     // Jump to a new row pyramid_number_pattern
+    }
+}
 
 
 
