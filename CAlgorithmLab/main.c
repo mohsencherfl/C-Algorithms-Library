@@ -542,6 +542,8 @@ void quickMoney_or_centDoubling() {
 }
 
 void createNumberPyramid() {
+    /*
+
     int num, rowMaxValue, temp;
     int row, counter, blankSpaces, currentValue = 1;
 
@@ -553,7 +555,7 @@ void createNumberPyramid() {
     for(row = 1; temp > 0 ; row++) {    // Acquiring the number of rows
         temp -= row;
         if(temp <= 0)
-            break;    // Preventing incrementation of (row)
+            break;    // Preventing incrementation of (row) in the last iteration
     }
 
     for(counter = 1; row > 0; row--) {
@@ -566,6 +568,32 @@ void createNumberPyramid() {
         }
         printf("\n");     // Jump to a new row pyramid_number_pattern
     }
+
+    */
+
+        // A more optimized solution
+
+    int num, row, counter, blankSpaces, currentValue = 1;
+    printf("Enter number: ");
+    scanf("%d", &num);
+
+    int temp = num, rows = 0;
+    while (temp > 0) {
+        rows++;
+        temp -= rows;
+    }
+
+    for (row = 1; row <= rows; row++) {
+        for (blankSpaces = 1; blankSpaces <= rows - row; blankSpaces++) {
+            printf(" ");
+        }
+
+        for (counter = 1; counter <= row && currentValue <= num; counter++) {
+            printf("%d ", currentValue++);
+        }
+        printf("\n");
+    }
+
 }
 
 
