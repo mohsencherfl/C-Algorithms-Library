@@ -24,6 +24,7 @@
     void createNumberPyramid();
     void sumOfDivisibleNumbers();
     void sumOfDivisibleNumbers_2();
+    void subtracting_OddDigitsSum_from_evenDigitsSum();
 
 int main()
 {
@@ -49,6 +50,7 @@ int main()
      createNumberPyramid();
      sumOfDivisibleNumbers();
      sumOfDivisibleNumbers_2();
+     subtracting_OddDigitsSum_from_evenDigitsSum();
 }
 
 void calculator_with_switch() {
@@ -656,7 +658,28 @@ void sumOfDivisibleNumbers_2() {
     printf("\nSum of the divisible numbers: %d \n", sum);
 }
 
+void subtracting_OddDigitsSum_from_evenDigitsSum() {
+    int num, tempNum;
+    int evenSum = 0, oddSum = 0;
 
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    while(num > 0) {
+        tempNum = num % 10;
+
+        if(tempNum % 2 == 0) {
+            evenSum += tempNum;
+        }
+        else {
+            oddSum += tempNum;
+        }
+        num /= 10;
+    }
+
+
+    printf("%d - %d = %d \n", evenSum, oddSum, evenSum-oddSum);
+}
 
 
 
