@@ -23,6 +23,7 @@
     void quickMoney_or_centDoubling();
     void createNumberPyramid();
     void sumOfDivisibleNumbers();
+    void sumOfDivisibleNumbers_2();
 
 int main()
 {
@@ -47,6 +48,7 @@ int main()
      quickMoney_or_centDoubling();
      createNumberPyramid();
      sumOfDivisibleNumbers();
+     sumOfDivisibleNumbers_2();
 }
 
 void calculator_with_switch() {
@@ -599,11 +601,9 @@ void createNumberPyramid() {
 }
 
 void sumOfDivisibleNumbers() {
-
-
     int num, sum;
 
-    printf("Enter a number: ");
+    printf("Enter an integer number: ");
     scanf("%d", &num);
 
     // An inefficient solution
@@ -624,6 +624,37 @@ void sumOfDivisibleNumbers() {
     printf("Sum of the divisible numbers: %d \n", sum);
 }
 
+void sumOfDivisibleNumbers_2() {
+    int num, sum;
+
+    printf("Enter an integer number: ");
+    scanf("%d", &num);
+
+    // An inefficient solution
+
+/*    for(int i = 1; i <= num; i++) {
+        if(i % 3 == 0 || i % 5 == 0) {
+            printf("%d can be divided by either 3 or 5 \n", i);
+            sum = sum + i;
+        }
+    }
+    printf("Sum of the divisible numbers: %d \n", sum);     */
+
+
+    // An optimized solution
+
+    for(int i = 3; i <= num; i+=3) {
+        printf("%d can be divided by 3 \n", i);
+        sum = sum + i;
+    }
+    printf("\n");
+    for(int i = 5; i <= num; i+=5) {
+        printf("%d can be divided by 5 \n", i);
+        if(i % 3 != 0)
+            sum = sum + i;
+    }
+    printf("\nSum of the divisible numbers: %d \n", sum);
+}
 
 
 
