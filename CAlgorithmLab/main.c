@@ -25,6 +25,7 @@
     void sumOfDivisibleNumbers();
     void sumOfDivisibleNumbers_2();
     void subtracting_OddDigitsSum_from_evenDigitsSum();
+    void sumOfOddNumbersInASequence();
 
 int main()
 {
@@ -51,6 +52,7 @@ int main()
      sumOfDivisibleNumbers();
      sumOfDivisibleNumbers_2();
      subtracting_OddDigitsSum_from_evenDigitsSum();
+     sumOfOddNumbersInASequence();
 }
 
 void calculator_with_switch() {
@@ -680,6 +682,23 @@ void subtracting_OddDigitsSum_from_evenDigitsSum() {
     printf("Even digits sum(%d) - Odd digits sum(%d) = %d \n", evenSum, oddSum, evenSum-oddSum);
 }
 
+void sumOfOddNumbersInASequence() {
 
+    int n;
+    int currentValue, oddSum;
+
+    printf("Enter 'n' (The number of values in a sequence): ");
+    scanf("%d", &n);
+
+    for(int i=1; i<=n; i++) {
+        printf("Enter a value: ");
+        scanf("%d", &currentValue);
+
+        if(currentValue % 2 == 1) {
+            oddSum += currentValue;
+        }
+    }
+    printf("Sum of the odd numbers = %d \n", oddSum);
+}
 
 
