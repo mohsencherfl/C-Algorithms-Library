@@ -659,26 +659,25 @@ void sumOfDivisibleNumbers_2() {
 }
 
 void subtracting_OddDigitsSum_from_evenDigitsSum() {
-    int num, tempNum;
+    int num, currentDigit;
     int evenSum = 0, oddSum = 0;
 
     printf("Enter a number: ");
     scanf("%d", &num);
 
     while(num > 0) {
-        tempNum = num % 10;
+        currentDigit = num % 10;
 
-        if(tempNum % 2 == 0) {
-            evenSum += tempNum;
+        if(currentDigit % 2 == 0) {
+            evenSum += currentDigit;
         }
         else {
-            oddSum += tempNum;
+            oddSum += currentDigit;
         }
         num /= 10;
     }
 
-
-    printf("%d - %d = %d \n", evenSum, oddSum, evenSum-oddSum);
+    printf("Even digits sum(%d) - Odd digits sum(%d) = %d \n", evenSum, oddSum, evenSum-oddSum);
 }
 
 
