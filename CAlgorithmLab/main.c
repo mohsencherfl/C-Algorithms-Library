@@ -26,6 +26,7 @@
     void sumOfDivisibleNumbers_2();
     void subtracting_OddDigitsSum_from_evenDigitsSum();
     void sumOfOddNumbersInASequence();
+    void factorial();
 
 int main()
 {
@@ -53,6 +54,7 @@ int main()
      sumOfDivisibleNumbers_2();
      subtracting_OddDigitsSum_from_evenDigitsSum();
      sumOfOddNumbersInASequence();
+     factorial();
 }
 
 void calculator_with_switch() {
@@ -700,5 +702,37 @@ void sumOfOddNumbersInASequence() {
     }
     printf("Sum of the odd numbers = %d \n", oddSum);
 }
+
+void factorial() {
+
+    int num, result = 1;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    while(num<0) {
+        printf("Enter a positive number: ");
+        scanf("%d", &num);
+    }
+
+    for(int i=1; i<=num; i++) {
+        result *= i;
+    }
+
+    printf("Factorial(%d): %d \n", num, result);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
