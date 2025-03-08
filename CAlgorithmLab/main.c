@@ -29,6 +29,7 @@
     void factorial();
     void toLowerCase();
     void toUpperCase();
+    void digitCharactersToInteger();
 
 int main()
 {
@@ -59,6 +60,7 @@ int main()
      factorial();
      toLowerCase();
      toUpperCase();
+     digitCharactersToInteger();
 }
 
 void calculator_with_switch() {
@@ -756,7 +758,47 @@ void toUpperCase() {
     printf("Upper case letter: %c \n", letter);
 }
 
+void digitCharactersToInteger() {
 
+    int digits=0;
+
+/*
+        // Solution #1
+    char character1, character2, character3;
+
+    printf("Enter three digit characters: ");
+    scanf("%c %c %c", &character1, &character2, &character3);
+
+    if((character1>='0' && character1<='9') && (character2>='0' && character2<='9') && (character3>='0' && character3<='9')) {
+        digits = character1 - '0';
+        digits *= 10;
+        digits += character2 - '0';
+        digits *= 10;
+        digits += character3 - '0';
+    }       */
+
+        // Solution #2
+    char character1, character2, character3;
+    int hundreds, tens, units;
+
+    printf("Enter three digit characters: ");
+    scanf("%c %c %c", &character1, &character2, &character3);
+
+    if(character1>='0' && character1<='9') {
+        hundreds = (character1 - '0')*100;
+    }
+    if(character2>='0' && character2<='9') {
+        tens = (character2 - '0')*10;
+    }
+    if(character3>='0' && character3<='9') {
+        units = character3 - '0';
+    }
+    digits = hundreds + tens + units;
+
+
+    printf("Characters are: '%c', '%c' and '%c' \n", character1, character2, character3);
+    printf("The result integer is: %d \n", digits);
+}
 
 
 
