@@ -27,6 +27,8 @@
     void subtracting_OddDigitsSum_from_evenDigitsSum();
     void sumOfOddNumbersInASequence();
     void factorial();
+    void toLowerCase();
+    void toUpperCase();
 
 int main()
 {
@@ -55,6 +57,8 @@ int main()
      subtracting_OddDigitsSum_from_evenDigitsSum();
      sumOfOddNumbersInASequence();
      factorial();
+     toLowerCase();
+     toUpperCase();
 }
 
 void calculator_with_switch() {
@@ -722,9 +726,35 @@ void factorial() {
     printf("Factorial(%d): %d \n", num, result);
 }
 
+void toLowerCase() {
 
+    char letter;
 
+    printf("Enter an upper case letter to change it to a lower case letter: ");
+    scanf("%c", &letter);
 
+    if(letter>='A' && letter<='Z') {
+//        letter = 122 - (90 - letter);
+        // OR
+        letter = letter - 'A' + 'a';
+    }
+    printf("Lower case letter: %c \n", letter);
+}
+
+void toUpperCase() {
+
+    char letter;
+
+    printf("Enter a lower case letter to change it to an upper case letter: ");
+    scanf("%c", &letter);
+
+    if(letter>='a' && letter<='z') {
+//        letter = 90 - (122 - letter);
+        // OR
+        letter = letter - 'a' + 'A';
+    }
+    printf("Upper case letter: %c \n", letter);
+}
 
 
 
