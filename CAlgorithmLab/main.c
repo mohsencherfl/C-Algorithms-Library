@@ -30,6 +30,7 @@
     void toLowerCase();
     void toUpperCase();
     void digitCharactersToInteger();
+    void sumOfDivisors();
 
 int main()
 {
@@ -61,6 +62,7 @@ int main()
      toLowerCase();
      toUpperCase();
      digitCharactersToInteger();
+     sumOfDivisors();
 }
 
 void calculator_with_switch() {
@@ -800,7 +802,90 @@ void digitCharactersToInteger() {
     printf("The result integer is: %d \n", digits);
 }
 
+void sumOfDivisors() {
 
+        // Solution #1: Less optimized
+/*    int num, count;
+
+    printf("Enter your number: ");
+    scanf("%d", &num);
+
+    int sum = 1+num;
+
+    if(num == 1) {
+        printf("Sum = %d \n", 1);
+    }
+    else {
+        for(int i=2; i<=num/2; i++) {
+            if(num%i == 0) {
+                sum += i;
+            }
+            count++;
+        }
+        printf("Number of iterations of the for loop = %d \n", count);
+        printf("Sum = %d \n\n", sum);
+
+    }       */
+
+
+
+        // Solution #2: More optimized
+/*    int num, count;
+
+    printf("Enter your number: ");
+    scanf("%d", &num);
+
+    int sum = 1+num;
+    int tempNum = num;
+
+    if(num == 1) {
+        printf("Sum = %d \n", 1);
+    }
+    else {
+        for(int i=2; i<tempNum; i++) {
+            if(num%i == 0) {
+                sum += i;
+                tempNum = num / i;
+                if(tempNum == i)
+                    break;
+                sum += num/i;
+            }
+            count++;
+        }
+        printf("Number of iterations of the for loop = %d \n", count);
+        printf("Sum = %d \n\n", sum);
+
+    }       */
+
+
+
+        // Solution #3: Optimal
+    int i, num, count;
+
+    printf("Enter your number: ");
+    scanf("%d", &num);
+
+    int sum = 1+num;
+
+    if(num == 1) {
+        printf("Sum = %d \n", 1);
+    }
+    else {
+        for(i=2; i*i<num; i++) {
+            if(num%i == 0) {
+                sum = sum+i + num/i;
+            }
+            count++;
+        }
+        if(i*i == num)
+            sum += i;
+
+        printf("Number of iterations of the for loop = %d \n", count);
+        printf("Sum = %d \n\n", sum);
+
+    }
+
+}
 
 
 
