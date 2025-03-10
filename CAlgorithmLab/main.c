@@ -32,6 +32,7 @@
     void digitCharactersToInteger();
     void sumOfDivisors();
     void perfectNumbers();
+    void multiplicationTable();
 
 int main()
 {
@@ -65,6 +66,7 @@ int main()
      digitCharactersToInteger();
      sumOfDivisors();
      perfectNumbers();
+     multiplicationTable();
 
      return 0;
 }
@@ -916,7 +918,73 @@ void perfectNumbers() {
 
 }
 
+void multiplicationTable() {
 
+    #define ROW_SIZE 11
+    #define COLUMN_SIZE 11
+
+    int i, j;
+    int myArr[ROW_SIZE][COLUMN_SIZE];
+
+    for(i=0; i<ROW_SIZE; i++){      // For-loop for assigning values to the table
+        if(i>0)
+            myArr[i][0]=i;
+        for(j=1; j<COLUMN_SIZE; j++){
+            if(i==0){
+                myArr[i][j]=j;
+                continue;
+            }
+            myArr[i][j] = myArr[0][j] * myArr[i][0];
+        }
+    }
+
+    for(i=0; i<ROW_SIZE; i++){      // For-loop for displaying values in the table
+        for(j=0; j<COLUMN_SIZE; j++){
+
+            if(i==0){
+                if(i==0 && j==0){
+                    printf("      ");
+                }
+                else if(i==0 && (j>0 && j<COLUMN_SIZE)){
+                    printf("  %d   ", myArr[i][j]);
+                }
+                if(j==COLUMN_SIZE-1){
+                    printf("\n");
+                }
+            }
+
+            else if(i>0 && i<10){
+                if(j==0){
+                    printf("%d    |", myArr[i][j]);
+                }
+                else{
+                    if(myArr[i][j]<10){
+                        printf("  %d  |", myArr[i][j]);
+                    }
+                    else{
+                        printf("  %d |", myArr[i][j]);
+                    }
+                }
+            }
+
+            else if(i>=10){
+                if(j==0){
+                    printf("%d   |", myArr[i][j]);
+                }
+                else{
+                    if(myArr[i][j]<10){
+                        printf("  %d  |", myArr[i][j]);
+                    }
+                    else{
+                        printf("  %d |", myArr[i][j]);
+                    }
+                }
+            }
+
+        }
+        printf("\n     -------------------------------------------------------------\n");
+    }
+}
 
 
 
