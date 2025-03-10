@@ -922,9 +922,11 @@ void multiplicationTable() {
 
     #define ROW_SIZE 11
     #define COLUMN_SIZE 11
-
     int i, j;
     int myArr[ROW_SIZE][COLUMN_SIZE];
+
+
+    // A more detailed and descriptive table
 
     for(i=0; i<ROW_SIZE; i++){      // For-loop for assigning values to the table
         if(i>0)
@@ -983,6 +985,23 @@ void multiplicationTable() {
 
         }
         printf("\n     -------------------------------------------------------------\n");
+    }
+
+
+
+    // A simple table
+
+    for(i=1; i<ROW_SIZE; i++){      // Filling the array indexes
+        for(j=1; j<COLUMN_SIZE; j++){
+            myArr[i][j] = i*j;
+        }
+    }
+
+    for(i=1; i<ROW_SIZE; i++){      // Displaying the array indexes' values
+        for(j=1; j<COLUMN_SIZE; j++){
+            printf("%4d", myArr[i][j]);
+        }
+        printf("\n");
     }
 }
 
