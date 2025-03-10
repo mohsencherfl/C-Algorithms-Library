@@ -31,6 +31,7 @@
     void toUpperCase();
     void digitCharactersToInteger();
     void sumOfDivisors();
+    void perfectNumbers();
 
 int main()
 {
@@ -63,6 +64,9 @@ int main()
      toUpperCase();
      digitCharactersToInteger();
      sumOfDivisors();
+     perfectNumbers();
+
+     return 0;
 }
 
 void calculator_with_switch() {
@@ -887,7 +891,30 @@ void sumOfDivisors() {
 
 }
 
+void perfectNumbers() {
 
+    int i, num, count;
+    int sum = 1;
+
+    printf("Enter your number: ");
+    scanf("%d", &num);
+
+
+    for(i=2; i*i<num; i++) {
+        if(num%i == 0) {
+            sum = sum+i + num/i;
+        }
+        count++;
+    }
+    if(i*i == num)
+        sum += i;
+
+    if(sum == num)
+        printf("%d is a perfect number. \n\n", num);
+    else
+        printf("%d is not a perfect number \n\n", num);
+
+}
 
 
 
