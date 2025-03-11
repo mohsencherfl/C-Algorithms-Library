@@ -37,6 +37,7 @@
     void sumOfTwoLargestElementsInArray();
     void howArrayIsSorted();
     void uniqueElementsInArray();
+    void duplicateValuesInArray();
 
 int main()
 {
@@ -75,6 +76,7 @@ int main()
      sumOfTwoLargestElementsInArray();
      howArrayIsSorted();
      uniqueElementsInArray();
+     duplicateValuesInArray();
 
      return 0;
 }
@@ -1136,5 +1138,34 @@ void uniqueElementsInArray() {
     }
     printf("\nTotal Number of unique elements = %d \n", uniqueCounter);
 
+}
+
+void duplicateValuesInArray() {
+
+    #define SIZE 22
+
+    int i, j;
+    int duplicateCounter = 0;
+    int arr[SIZE] = {10,3,12,20,19,20,2,12,13,10,2,1,1,13,10,10,2,3,3,3,9,9};
+
+    for(i=0; i<SIZE; i++) {             // Selecting an element
+        for(j=0; j<SIZE; j++) {         // Comparing the selected element with other elements in the array
+            if(i==j)
+                continue;
+            if(arr[i] == arr[j] && j<i) {       // We break out of the loop if we have already taken into account the duplicate value
+                break;
+            }
+            if(arr[i] == arr[j] && j>i) {       // We take into account the duplicate value for the first time
+                duplicateCounter++;
+                printf("Duplicate value = %d \n", arr[i]);
+                break;
+            }
+        }
+    }
+
+    if(duplicateCounter)
+        printf("\nTotal Number of duplicate values = %d \n", duplicateCounter);
+    else
+        printf("\nNo duplicate values were found. \n");
 }
 
