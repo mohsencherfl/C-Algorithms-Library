@@ -1122,14 +1122,17 @@ void uniqueElementsInArray() {
         for(j=0; j<SIZE; j++) {         // Comparing the selected element with other elements in the array
             if(i==j)                    // We don't want to compare an element with itself
                 continue;
-            if(arr[i] == arr[j])        // We break out of the loop if the selected element is not unique
+            if(arr[i] == arr[j]) {      // We break out of the loop if the selected element is not unique
                 foundDuplicate = 1;
+                break;
+            }
         }
         if(foundDuplicate!=1) {
             uniqueCounter++;
             printf("Unique element %d = arr[%d] = %d \n", uniqueCounter, i, arr[i]);
         }
-        foundDuplicate = 0;
+        else
+            foundDuplicate = 0;
     }
     printf("\nTotal Number of unique elements = %d \n", uniqueCounter);
 
