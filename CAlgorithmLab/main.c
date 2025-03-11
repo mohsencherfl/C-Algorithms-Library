@@ -1084,11 +1084,13 @@ void uniqueElementsInArray() {
 
     #define SIZE 13
 
-    int i, j;
-    int arr[SIZE] = {10,12,20,19,20,2,12,13,2,1,1,13,10};
-    int uniqueCounter = 0;
+        // Solution #1:
 
-    for(i=0; i<SIZE; i++) {             // Selecting an element
+/*    int i, j;
+    int uniqueCounter = 0;
+    int arr[SIZE] = {10,12,20,19,20,2,12,13,2,1,1,13,10};
+
+   for(i=0; i<SIZE; i++) {             // Selecting an element
         for(j=0; j<SIZE; j++) {         // Comparing the selected element with other elements in the array
             if(j==SIZE-1 && arr[i] != arr[j]) {         // Specifying the unique element
                 uniqueCounter++;
@@ -1104,6 +1106,32 @@ void uniqueElementsInArray() {
             }
         }
     }
+    printf("\nTotal Number of unique elements = %d \n", uniqueCounter);         */
+
+
+
+
+        // Solution #2: A more readable solution
+
+    int i, j;
+    int foundDuplicate = 0;
+    int uniqueCounter = 0;
+    int arr[SIZE] = {10,12,20,19,20,2,12,13,2,1,1,13,10};
+
+    for(i=0; i<SIZE; i++) {             // Selecting an element
+        for(j=0; j<SIZE; j++) {         // Comparing the selected element with other elements in the array
+            if(i==j)                    // We don't want to compare an element with itself
+                continue;
+            if(arr[i] == arr[j])        // We break out of the loop if the selected element is not unique
+                foundDuplicate = 1;
+        }
+        if(foundDuplicate!=1) {
+            uniqueCounter++;
+            printf("Unique element %d = arr[%d] = %d \n", uniqueCounter, i, arr[i]);
+        }
+        foundDuplicate = 0;
+    }
     printf("\nTotal Number of unique elements = %d \n", uniqueCounter);
+
 }
 
