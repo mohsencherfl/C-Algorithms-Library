@@ -34,6 +34,7 @@
     void perfectNumbers();
     void multiplicationTable();
     void isPalindrome();
+    void sumOfTwoLargestElementsInArray();
 
 int main()
 {
@@ -69,6 +70,7 @@ int main()
      perfectNumbers();
      multiplicationTable();
      isPalindrome();
+     sumOfTwoLargestElementsInArray();
 
      return 0;
 }
@@ -1028,4 +1030,25 @@ void isPalindrome() {
         printf("The array is not a palindrome. \n");
 
 }
+
+void sumOfTwoLargestElementsInArray() {
+
+    #define SIZE 6
+
+    int myArr[SIZE] = {10,6,1,16,2,10};
+    int largestSum = myArr[0] + myArr[1];
+    int element1, element2;
+
+    for(int i=1; i<SIZE-1; i++) {
+        if(largestSum < myArr[i] + myArr[i+1]) {
+            largestSum = myArr[i] + myArr[i+1];
+            element1 = myArr[i];
+            element2 = myArr[i+1];
+        }
+    }
+
+    printf("\nThe sum of two largest adjacent elements(%d+%d) = %d \n", element1, element2, largestSum);
+}
+
+
 
