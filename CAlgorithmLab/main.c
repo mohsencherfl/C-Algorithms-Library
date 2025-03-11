@@ -36,6 +36,7 @@
     void isPalindrome();
     void sumOfTwoLargestElementsInArray();
     void howArrayIsSorted();
+    void uniqueElementsInArray();
 
 int main()
 {
@@ -73,6 +74,7 @@ int main()
      isPalindrome();
      sumOfTwoLargestElementsInArray();
      howArrayIsSorted();
+     uniqueElementsInArray();
 
      return 0;
 }
@@ -1076,5 +1078,32 @@ void howArrayIsSorted() {
     else if(isSorted == -1)
         printf("The array is not sorted. \n");
 
+}
+
+void uniqueElementsInArray() {
+
+    #define SIZE 13
+
+    int i, j;
+    int arr[SIZE] = {10,12,20,19,20,2,12,13,2,1,1,13,10};
+    int uniqueCounter = 0;
+
+    for(i=0; i<SIZE; i++) {             // Selecting an element
+        for(j=0; j<SIZE; j++) {         // Comparing the selected element with other elements in the array
+            if(j==SIZE-1 && arr[i] != arr[j]) {         // Specifying the unique element
+                uniqueCounter++;
+                printf("Unique element %d = arr[%d] = %d \n", uniqueCounter, i, arr[i]);
+            }
+            if(i==j)                    // We don't want to compare an element with itself
+                continue;
+            if(arr[i] != arr[j]) {      // We continue comparing if the elements are not same
+                continue;
+            }
+            else if(arr[i] == arr[j]) {         // We break out of the loop if the selected element is not unique
+                break;
+            }
+        }
+    }
+    printf("\nTotal Number of unique elements = %d \n", uniqueCounter);
 }
 
