@@ -35,6 +35,7 @@
     void multiplicationTable();
     void isPalindrome();
     void sumOfTwoLargestElementsInArray();
+    void howArrayIsSorted();
 
 int main()
 {
@@ -71,6 +72,7 @@ int main()
      multiplicationTable();
      isPalindrome();
      sumOfTwoLargestElementsInArray();
+     howArrayIsSorted();
 
      return 0;
 }
@@ -1050,5 +1052,29 @@ void sumOfTwoLargestElementsInArray() {
     printf("\nThe sum of two largest adjacent elements(%d+%d) = %d \n", element1, element2, largestSum);
 }
 
+void howArrayIsSorted() {
 
+    #define SIZE 6
+
+    int arr[SIZE] = {10,12,16,19,20,20};
+    int isSorted = 1;
+
+    for(int i=0; i<SIZE-1; i++) {
+        if(arr[i] > arr[i+1]) {
+            isSorted = -1;
+            break;
+        }
+        if(arr[i] == arr[i+1]) {
+            isSorted = 0;
+        }
+    }
+
+    if(isSorted == 1)
+        printf("The array is totally sorted. \n");
+    else if(isSorted == 0)
+        printf("The array is slightly sorted. \n");
+    else if(isSorted == -1)
+        printf("The array is not sorted. \n");
+
+}
 
