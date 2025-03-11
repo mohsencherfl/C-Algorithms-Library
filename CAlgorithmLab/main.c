@@ -33,6 +33,7 @@
     void sumOfDivisors();
     void perfectNumbers();
     void multiplicationTable();
+    void isPalindrome();
 
 int main()
 {
@@ -67,6 +68,7 @@ int main()
      sumOfDivisors();
      perfectNumbers();
      multiplicationTable();
+     isPalindrome();
 
      return 0;
 }
@@ -1005,5 +1007,25 @@ void multiplicationTable() {
     }
 }
 
+void isPalindrome() {
 
+    #define SIZE 9
+
+    int i;
+    int isPalindrome = 1;
+    int palindrome[SIZE] = {1,7,2,3,5,3,2,7,1};
+
+    for(i=0; i<SIZE/2; i++){
+        if(palindrome[i] != palindrome[SIZE-1-i]){
+            isPalindrome = 0;
+            break;
+        }
+    }
+
+    if(isPalindrome)
+        printf("The array is a palindrome. \n");
+    else
+        printf("The array is not a palindrome. \n");
+
+}
 
