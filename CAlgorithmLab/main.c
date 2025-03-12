@@ -42,6 +42,11 @@
     void rotateRightAGivenArray();
     void sumOfTwoElementsClosestToZero();
 
+    int sumArrayWithoutPointer(int arr[], int size);
+    void callingSumArrayWithoutPointer();
+
+
+
 int main()
 {
      calculator_with_switch();
@@ -83,6 +88,7 @@ int main()
      rotateLeftAGivenArray();
      rotateRightAGivenArray();
      sumOfTwoElementsClosestToZero();
+     callingSumArrayWithoutPointer();
 
      return 0;
 }
@@ -1313,6 +1319,24 @@ void sumOfTwoElementsClosestToZero() {
 }
 
 
+int sumArrayWithoutPointer(int arr[], int size) {
 
+    int sum = 0;
+
+    for(int i=0; i<size; i++) {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+void callingSumArrayWithoutPointer() {
+
+    int myArray[] = {5, 10, 15, 20, 25};  // Example array
+    int size = sizeof(myArray) / sizeof(myArray[0]);  // Calculate size of the array
+
+    int result = sumArrayWithoutPointer(myArray, size);  // Call the function
+
+    printf("The sum of the array elements is: %d\n", result);  // Output the result
+}
 
 
