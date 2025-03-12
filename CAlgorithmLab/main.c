@@ -45,7 +45,8 @@
     int sumArrayWithoutPointer(int arr[], int size);
     void callingSumArrayWithoutPointer();
 
-
+    int sumArrayWithPointer(int *pArr, int size);
+    void callingSumArrayWithPointer();
 
 int main()
 {
@@ -89,6 +90,7 @@ int main()
      rotateRightAGivenArray();
      sumOfTwoElementsClosestToZero();
      callingSumArrayWithoutPointer();
+     callingSumArrayWithPointer();
 
      return 0;
 }
@@ -1338,5 +1340,26 @@ void callingSumArrayWithoutPointer() {
 
     printf("The sum of the array elements is: %d\n", result);  // Output the result
 }
+
+
+int sumArrayWithPointer(int *pArr, int size) {
+    int sum = 0;
+    for (int i = 0; i < size; i++) {
+//        sum += pArr[i];         // Accessing elements through index notation
+        sum += *(pArr + i);     // Accessing elements through pointer arithmetic
+    }
+    return sum;
+}
+
+void callingSumArrayWithPointer() {
+
+    int myArray[] = {5, 10, 15, 20, 25, 30};  // Example array
+    int size = sizeof(myArray) / sizeof(myArray[0]);  // Calculate size of the array
+
+    int result = sumArrayWithPointer(myArray, size);  // Call the function
+
+    printf("The sum of the array elements is: %d\n", result);  // Output the result
+}
+
 
 
