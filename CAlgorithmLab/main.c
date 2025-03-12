@@ -40,6 +40,7 @@
     void duplicateValuesInArray();
     void rotateLeftAGivenArray();
     void rotateRightAGivenArray();
+    void sumOfTwoElementsClosestToZero();
 
 int main()
 {
@@ -81,6 +82,7 @@ int main()
      duplicateValuesInArray();
      rotateLeftAGivenArray();
      rotateRightAGivenArray();
+     sumOfTwoElementsClosestToZero();
 
      return 0;
 }
@@ -1253,4 +1255,64 @@ void rotateRightAGivenArray() {
         printf("%d ", arr[i]);
     }
 }
+
+void sumOfTwoElementsClosestToZero() {
+
+    #define SIZE 4
+
+    int arr[SIZE] = {-5,-4,8,9};
+    int minSum = arr[0] + arr[1];
+    int index1 = 0, index2 = 1;
+    int currentSum;
+    int i, j;
+
+
+        // Solution #1
+
+    if(minSum < 0)              // Calculate the absolute value if minSum is less than zero
+        minSum *= -1;
+
+        for(i=0; i<SIZE; i++) {
+            for(j=i+1; j<SIZE; j++) {
+                currentSum = arr[i] + arr[j];
+                if(currentSum < 0) {
+                    if(minSum > (currentSum * -1 )) {
+                        minSum = currentSum;
+                        index1 = i;
+                        index2 = j;
+                    }
+                }
+                else {
+                    if(minSum > currentSum) {
+                        minSum = currentSum;
+                        index1 = i;
+                        index2 = j;
+                    }
+                }
+            }
+        }
+
+        printf("(index[%d] + index[%d]) ==> (%d + %d) = %d \n", index1, index2, arr[index1], arr[index2], minSum);
+
+
+
+            // Solution #2: Using |abs| function
+
+        for(i=0; i<SIZE; i++) {
+            for(j=i+1; j<SIZE; j++) {
+                currentSum = arr[i] + arr[j];
+                if(abs(currentSum) < abs(minSum)){
+                    minSum = currentSum;
+                    index1 = i;
+                    index2 = j;
+                }
+            }
+        }
+
+        printf("(index[%d] + index[%d]) ==> (%d + %d) = %d \n", index1, index2, arr[index1], arr[index2], minSum);
+}
+
+
+
+
 
