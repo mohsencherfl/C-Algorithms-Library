@@ -39,6 +39,7 @@
     void uniqueElementsInArray();
     void duplicateValuesInArray();
     void rotateLeftAGivenArray();
+    void rotateRightAGivenArray();
 
 int main()
 {
@@ -79,6 +80,7 @@ int main()
      uniqueElementsInArray();
      duplicateValuesInArray();
      rotateLeftAGivenArray();
+     rotateRightAGivenArray();
 
      return 0;
 }
@@ -1231,4 +1233,24 @@ void rotateLeftAGivenArray() {
     }
 }
 
+void rotateRightAGivenArray() {
+
+    #define SIZE 5
+
+    int temp;
+    int rotateNum = 4;
+    int arr[SIZE] = {5,7,9,3,1};
+
+        for(int i=0; i<rotateNum; i++) {        // Number of positions to rotate
+            temp = arr[SIZE-1];
+            for(int j=1; j<SIZE; j++) {         // Rotating each element to right by one position
+                arr[SIZE-j] = arr[SIZE-(j+1)];
+            }
+            arr[0] = temp;         // Assigning last value to first element
+        }
+
+    for(int i=0; i<SIZE; i++) {
+        printf("%d ", arr[i]);
+    }
+}
 
