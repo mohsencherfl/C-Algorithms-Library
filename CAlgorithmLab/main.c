@@ -38,6 +38,7 @@
     void howArrayIsSorted();
     void uniqueElementsInArray();
     void duplicateValuesInArray();
+    void rotateLeftAGivenArray();
 
 int main()
 {
@@ -77,6 +78,7 @@ int main()
      howArrayIsSorted();
      uniqueElementsInArray();
      duplicateValuesInArray();
+     rotateLeftAGivenArray();
 
      return 0;
 }
@@ -1207,4 +1209,26 @@ void duplicateValuesInArray() {
         printf("\nNo duplicate values were found. \n");
 
 }
+
+void rotateLeftAGivenArray() {
+
+    #define SIZE 5
+
+    int temp;
+    int rotateNum = 2;
+    int arr[SIZE] = {5,7,9,3,1};
+
+        for(int i=0; i<rotateNum; i++) {        // Number of positions to rotate
+            temp = arr[0];
+            for(int j=1; j<SIZE; j++) {         // Rotating each element to left by one position
+                arr[j-1] = arr[j];
+            }
+            arr[SIZE-1] = temp;         // Assigning first value to last element
+        }
+
+    for(int i=0; i<SIZE; i++) {
+        printf("%d ", arr[i]);
+    }
+}
+
 
