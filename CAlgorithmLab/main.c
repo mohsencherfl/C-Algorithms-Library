@@ -1144,7 +1144,9 @@ void duplicateValuesInArray() {
 
     #define SIZE 22
 
-    int i, j;
+        // Solution #1
+
+/*    int i, j;
     int duplicateCounter = 0;
     int arr[SIZE] = {10,3,12,20,19,20,2,12,13,10,2,1,1,13,10,10,2,3,3,3,9,9};
 
@@ -1166,6 +1168,43 @@ void duplicateValuesInArray() {
     if(duplicateCounter)
         printf("\nTotal Number of duplicate values = %d \n", duplicateCounter);
     else
+        printf("\nNo duplicate values were found. \n");     */
+
+
+
+        // Solution #2
+
+    int i, j;
+    int foundDuplicate = 0;
+    int duplicateCounter = 0;
+    int arr[SIZE] = {10,3,12,20,19,20,2,12,13,10,2,1,1,13,10,10,2,3,3,3,9,9};
+
+    for(i=0; i<SIZE; i++) {              // Selecting an element
+        foundDuplicate = 0;
+        for(j=0; j<i; j++) {             // Comparing the selected element with other elements in the array
+            if(arr[i] == arr[j]) {       // We break out of the loop if we have already taken into account the duplicate value
+                foundDuplicate = 1;
+                break;
+            }
+        }
+        if(foundDuplicate == 1)
+            continue;
+        else {
+            for(j=i+1; j<SIZE; j++) {
+                if(arr[i] == arr[j]) {
+                    duplicateCounter++;
+                    printf("Duplicate value = %d \n", arr[i]);
+                    break;
+                }
+            }
+        }
+
+    }
+
+    if(duplicateCounter)
+        printf("\nTotal Number of duplicate values = %d \n", duplicateCounter);
+    else
         printf("\nNo duplicate values were found. \n");
+
 }
 
