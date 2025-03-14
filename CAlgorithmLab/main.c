@@ -48,7 +48,7 @@
     int sumArrayWithPointer(int *pArr, int size);
     void callingSumArrayWithPointer();
 
-    void getStringLength();
+    void getStringLength_predefinedString();
 
 int main()
 {
@@ -93,7 +93,7 @@ int main()
      sumOfTwoElementsClosestToZero();
      callingSumArrayWithoutPointer();
      callingSumArrayWithPointer();
-     getStringLength();
+     getStringLength_predefinedString();
 
      return 0;
 }
