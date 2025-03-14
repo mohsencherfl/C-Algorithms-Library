@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <string.h>
 
     void calculator_with_switch();
     void maximum_and_minimum_multiple_numbers();
@@ -51,6 +52,7 @@
     void getStringLength_predefinedString();
     void getStringLength_UserdefinedString();
     void countWords();
+    void isStringPalindrome();
 
 int main()
 {
@@ -98,6 +100,7 @@ int main()
      getStringLength_predefinedString();
      getStringLength_UserdefinedString();
      countWords();
+     isStringPalindrome();
 
      return 0;
 }
@@ -1432,3 +1435,23 @@ void countWords() {
     printf("The number of words in **%s** = %d \n", sentence, wordCount);
 }
 
+void isStringPalindrome() {
+
+    int i = 0;
+    int charCount = 0;
+    char string[200];
+
+    printf("Enter your string: ");
+    fgets(string, sizeof(string), stdin);
+
+    for(i=0; i<strlen(string)/2; i++) {
+        if(string[i] != string[strlen(string)-(i+2)]) {
+            printf("It is not a palindrome. \n", string);
+            return 0; // Exit early if not a palindrome
+        }
+    }
+
+    printf("It is a palindrome. \n", string);
+
+    return 0;
+}
