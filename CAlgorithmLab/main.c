@@ -48,6 +48,8 @@
     int sumArrayWithPointer(int *pArr, int size);
     void callingSumArrayWithPointer();
 
+    void getStringLength();
+
 int main()
 {
      calculator_with_switch();
@@ -91,6 +93,7 @@ int main()
      sumOfTwoElementsClosestToZero();
      callingSumArrayWithoutPointer();
      callingSumArrayWithPointer();
+     getStringLength();
 
      return 0;
 }
@@ -1362,4 +1365,14 @@ void callingSumArrayWithPointer() {
 }
 
 
+void getStringLength_predefinedString() {
+
+    char str[] = "Get the length of any string";
+    int strLength = 0;
+
+    while(str[strLength] != '\0')
+        strLength++;
+
+    printf("%d \n", strLength);
+}
 
