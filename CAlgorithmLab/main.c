@@ -1409,7 +1409,7 @@ void countWords() {
 //        if(sentence[i] == ' '){
 //            wordCount++;
 //        }
-    if ((i == 0 || string[i - 1] == ' ' || string[i - 1] == '\n') && (string[i] != ' ' && string[i] != '\n')) {
+    if ((i == 0 || string[i - 1] == ' ') && (string[i] != ' ' && string[i] != '\n')) {
             wordCount++;
         }
     }
@@ -1422,7 +1422,7 @@ void countWords() {
 //        if(sentence[i] == ' ') {
 //            wordCount++;
 //        }
-    if ((i == 0 || sentence[i - 1] == ' ' || sentence[i - 1] == '\n') && (sentence[i] != ' ' && sentence[i] != '\n')) {
+    if ((i == 0 || sentence[i - 1] == ' ') && (sentence[i] != ' ' && sentence[i] != '\n')) {
             wordCount++;
         }
         i++;
