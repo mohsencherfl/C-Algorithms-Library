@@ -50,6 +50,7 @@
 
     void getStringLength_predefinedString();
     void getStringLength_UserdefinedString();
+    void countWords();
 
 int main()
 {
@@ -96,6 +97,7 @@ int main()
      callingSumArrayWithPointer();
      getStringLength_predefinedString();
      getStringLength_UserdefinedString();
+     void countWords();
 
      return 0;
 }
@@ -1380,14 +1382,46 @@ void getStringLength_predefinedString() {
 
 void getStringLength_UserdefinedString() {
 
-    char UserString[200];
+    char userString[200];
     int strLength = 0;
 
     printf("Enter your string to calculate the length (Max = 200 characters): ");
-    fgets(UserString, sizeof(UserString), stdin);
+    fgets(userString, sizeof(userString), stdin);
 
-    while(UserString[strLength] != '\n')
+    while(userString[strLength] != '\n')
         strLength++;
 
     printf("%d \n", strLength);
 }
+
+void countWords() {
+
+    char sentence[50];
+    int countWords = 0;
+
+    printf("Enter your string: ");
+    fgets(sentence, sizeof(sentence), stdin);
+
+    // Using for loop
+/*    int i;
+
+    for(i=0; i<strlen(sentence); i++) {
+        if(sentence[i] == ' '){
+            countWords++;
+        }
+    }
+    countWords++;       */
+
+    // Using while loop
+    int i=0;
+    while(sentence[i] != '\n') {
+        if(sentence[i] == ' ') {
+            countWords++;
+        }
+        i++;
+    }
+    countWords++;
+
+    printf("The number of words in **%s** = %d \n", sentence, countWords);
+}
+
