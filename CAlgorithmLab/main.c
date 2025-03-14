@@ -49,6 +49,7 @@
     void callingSumArrayWithPointer();
 
     void getStringLength_predefinedString();
+    void getStringLength_UserdefinedString();
 
 int main()
 {
@@ -94,6 +95,7 @@ int main()
      callingSumArrayWithoutPointer();
      callingSumArrayWithPointer();
      getStringLength_predefinedString();
+     getStringLength_UserdefinedString();
 
      return 0;
 }
@@ -1376,3 +1378,16 @@ void getStringLength_predefinedString() {
     printf("%d \n", strLength);
 }
 
+void getStringLength_UserdefinedString() {
+
+    char UserString[200];
+    int strLength = 0;
+
+    printf("Enter your string to calculate the length (Max = 200 characters): ");
+    fgets(UserString, sizeof(UserString), stdin);
+
+    while(UserString[strLength] != '\n')
+        strLength++;
+
+    printf("%d \n", strLength);
+}
