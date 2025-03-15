@@ -55,6 +55,7 @@
     void isStringPalindrome();
     long long int fibonacci_recursiveApproach(int n);
     void fibonacci_recursive();
+    void fibonacci_iterative();
 
 int main()
 {
@@ -104,6 +105,7 @@ int main()
      countWords();
      isStringPalindrome();
      fibonacci_recursive();
+     fibonacci_iterative();
 
      return 0;
 }
@@ -1492,5 +1494,35 @@ void fibonacci_recursive() {
 
 }
 
+void fibonacci_iterative() {
 
+    int num, i;
+    long long a = 0;
+    long long b = 1;
+    long long next;
+
+    printf("Enter the term number you want to find in Fibonacci sequence: ");
+    scanf("%d", &num);
+
+    // Mode #1: Printing the n-th term value in Fibonacci sequence
+/*
+    for(i=0; i<num-1; i++) {
+        next = a+b;
+        a = b;
+        b = next;
+    }
+    printf("Value of the (%d)th term in Fibonacci sequence = %lld \n", num, a);
+                                                                                    */
+
+
+    // Mode #2: Printing all the values of Fibonacci sequence up to the n-th term
+
+    for(i=0; i<num; i++) {
+        printf("Term %d: %lld \n", i+1, a);
+        next = a+b;
+        a = b;
+        b = next;
+    }
+
+}
 
