@@ -58,6 +58,8 @@
     void fibonacci_iterative();
     int sumOfDigits_recursiveApproach();
     void sumOfDigits_recursive();
+    int numberOfDigits_recursiveApproach();
+    void numberOfDigits_recursive();
 
 int main()
 {
@@ -109,6 +111,7 @@ int main()
      fibonacci_recursive();
      fibonacci_iterative();
      sumOfDigits_recursive();
+     numberOfDigits_recursive();
 
      return 0;
 }
@@ -1542,6 +1545,23 @@ void sumOfDigits_recursive() {
     int num = 953519;
 
     printf("Sum of digits in %d = %d \n", num, sumOfDigits_recursiveApproach(num));
+}
+
+int numberOfDigits_recursiveApproach(int num) {
+
+    if(num <= 9)
+        return 1;
+
+    return 1 + numberOfDigits_recursiveApproach(num/10);
+
+}
+
+void numberOfDigits_recursive() {
+
+    int num = 95319;
+
+    printf("Number of digits in %d = %d \n", num, numberOfDigits_recursiveApproach(num));
+
 }
 
 
