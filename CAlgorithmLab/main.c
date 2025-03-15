@@ -56,6 +56,8 @@
     long long int fibonacci_recursiveApproach(int n);
     void fibonacci_recursive();
     void fibonacci_iterative();
+    int sumOfDigits_recursiveApproach();
+    void sumOfDigits_recursive();
 
 int main()
 {
@@ -106,6 +108,7 @@ int main()
      isStringPalindrome();
      fibonacci_recursive();
      fibonacci_iterative();
+     sumOfDigits_recursive();
 
      return 0;
 }
@@ -1525,4 +1528,20 @@ void fibonacci_iterative() {
     }
 
 }
+
+int sumOfDigits_recursiveApproach(int num) {
+
+    if(num <= 9)
+        return num;
+
+    return num%10 + sumOfDigits_recursiveApproach(num/10);
+}
+
+void sumOfDigits_recursive() {
+
+    int num = 953519;
+
+    printf("Sum of digits in %d = %d \n", num, sumOfDigits_recursiveApproach(num));
+}
+
 
