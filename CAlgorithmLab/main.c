@@ -62,6 +62,7 @@
     void numberOfDigits_recursive();
     void countArrayValues();
     void countLettersInArray();
+    void countCharactersInArray();
 
 int main()
 {
@@ -116,6 +117,7 @@ int main()
      numberOfDigits_recursive();
      countArrayValues();
      countLettersInArray();
+     countCharactersInArray();
 
      return 0;
 }
@@ -1649,4 +1651,42 @@ void countLettersInArray() {
     }
     printf("\nLetter (%c) has appeared most of the time. Total of %d appearances. \n", maxIndex+97, countArr[maxIndex]);
 }
+
+void countCharactersInArray() {
+
+    // Indirect mapping of ASCII table characters
+
+    int arr[] = {'K', 'c', 'R', 'C', 'r', 'c', ' ', 'O', 'K', 'c'};
+    int length = sizeof(arr) / sizeof(arr[0]);
+    int countArr[53] = {0};
+
+    for(int index=0; index<length; index++) {
+        if(arr[index] == ' ')
+            countArr[arr[index] - ' ']++;
+        if(arr[index] >= 'A' && arr[index] <= 'Z')
+            countArr[arr[index] - ('A'-1)]++;
+        if(arr[index] >= 'a' && arr[index] <= 'z')
+            countArr[arr[index] - ('a'-27)]++;
+    }
+
+    int maxIndex = 0;
+
+    for(int index=1; index<53; index++) {
+        if(countArr[index] > countArr[maxIndex]) {
+            maxIndex = index;
+        }
+    }
+
+    int realCharacter = 0;
+
+    if(maxIndex == 0)
+        realCharacter += maxIndex+32;
+    if(maxIndex >= 1 && maxIndex < 27)
+        realCharacter += maxIndex+64;
+    if(maxIndex >= 27 && maxIndex < 53)
+        realCharacter += maxIndex+70;
+
+    printf("\nCharacter (%c) has appeared most of the time. Total of %d appearances. \n", realCharacter, countArr[maxIndex]);
+}
+
 
