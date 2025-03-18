@@ -61,6 +61,7 @@
     int numberOfDigits_recursiveApproach();
     void numberOfDigits_recursive();
     void countArrayValues();
+    void countLettersInArray();
 
 int main()
 {
@@ -114,6 +115,7 @@ int main()
      sumOfDigits_recursive();
      numberOfDigits_recursive();
      countArrayValues();
+     countLettersInArray();
 
      return 0;
 }
@@ -1621,3 +1623,30 @@ void countArrayValues() {
     printf("The value of %d has appeared most of the time. Total of %d appearances. \n", maxIndex2, maxValue2);
 
 }
+
+void countLettersInArray() {
+
+    // Indirect mapping of letters using ASCII table
+
+    int arr[] = {'k', 'i', 'b', 'r', 'c', 'k', 'z', 'm'};
+    int length = sizeof(arr) / sizeof(arr[0]);
+    int countArr[26] = {0};
+
+    for(int index=0; index<length; index++) {
+        countArr[arr[index]-97]++;
+    }
+
+    for(int index=0; index<26; index++) {
+        printf("letter (%c) has repeated %d times in the array. \n", index+97, countArr[index]);
+    }
+
+    int maxIndex = 0;
+
+    for(int index=1; index<26; index++) {
+        if(countArr[index] > countArr[maxIndex]) {
+            maxIndex = index;
+        }
+    }
+    printf("\nLetter (%c) has appeared most of the time. Total of %d appearances. \n", maxIndex+97, countArr[maxIndex]);
+}
+
