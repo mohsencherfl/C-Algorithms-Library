@@ -60,6 +60,7 @@
     void sumOfDigits_recursive();
     int numberOfDigits_recursiveApproach();
     void numberOfDigits_recursive();
+    void countArrayValues();
 
 int main()
 {
@@ -112,6 +113,7 @@ int main()
      fibonacci_iterative();
      sumOfDigits_recursive();
      numberOfDigits_recursive();
+     countArrayValues();
 
      return 0;
 }
@@ -1564,4 +1566,17 @@ void numberOfDigits_recursive() {
 
 }
 
+void countArrayValues() {
 
+    int arr[] = {0,0,4,5,3,2,1,6,6,7,8,4,7,2,0,7,4,2,5,6,4,9,9,0,7,3,2,1,1,6,5,4};
+    int length = sizeof(arr) / sizeof(arr[0]);
+    int countArr[9] = {0};
+
+    for(int index=0; index<length; index++) {
+        countArr[arr[index]]++;
+    }
+
+    for(int index=0; index<10; index++) {
+        printf("Number (%d) has repeated %d times in the array. \n", index, countArr[index]);
+    }
+}
