@@ -1579,4 +1579,15 @@ void countArrayValues() {
     for(int index=0; index<10; index++) {
         printf("Number (%d) has repeated %d times in the array. \n", index, countArr[index]);
     }
+
+    int maxValue = countArr[0];
+    int maxIndex = 0;
+
+    for(int index=0; index<10; index++) {
+        if(countArr[index] > maxValue) {
+            maxValue = countArr[index];
+            maxIndex = index;
+        }
+    }
+    printf("The value of %d has appeared most of the time. Total of %d appearances. \n", maxIndex, maxValue);
 }
