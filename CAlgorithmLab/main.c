@@ -1568,6 +1568,8 @@ void numberOfDigits_recursive() {
 
 void countArrayValues() {
 
+        // Direct mapping
+
     int arr[] = {0,0,4,5,3,2,1,6,6,7,8,4,7,2,0,7,4,2,5,6,4,9,9,0,7,3,2,1,1,6,5,4};
     int length = sizeof(arr) / sizeof(arr[0]);
     int countArr[9] = {0};
@@ -1590,4 +1592,32 @@ void countArrayValues() {
         }
     }
     printf("The value of %d has appeared most of the time. Total of %d appearances. \n", maxIndex, maxValue);
+
+
+
+        // Indirect mapping
+
+    int arr2[] = {6,5,7,5,9,7,6,7,9,8,10};
+    int length2 = sizeof(arr2) / sizeof(arr2[0]);
+    int countArr2[6] = {0};
+
+    for(int index=0; index<length2; index++) {
+        countArr2[arr2[index]-5]++;
+    }
+
+    for(int index=0; index<6; index++) {
+        printf("Number (%d) has repeated %d times in the array. \n", index+5, countArr2[index]);
+    }
+
+    int maxValue2 = countArr2[0];
+    int maxIndex2 = 0;
+
+    for(int index=0; index<6; index++) {
+        if(countArr2[index] > maxValue2) {
+            maxValue2 = countArr2[index];
+            maxIndex2 = index+5;
+        }
+    }
+    printf("The value of %d has appeared most of the time. Total of %d appearances. \n", maxIndex2, maxValue2);
+
 }
