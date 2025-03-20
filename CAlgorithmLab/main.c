@@ -63,6 +63,7 @@
     void countArrayValues();
     void countLettersInArray();
     void countCharactersInArray();
+    void swapValues();
 
 int main()
 {
@@ -118,6 +119,7 @@ int main()
      countArrayValues();
      countLettersInArray();
      countCharactersInArray();
+     swapValues();
 
      return 0;
 }
@@ -1687,6 +1689,27 @@ void countCharactersInArray() {
         realCharacter += maxIndex+70;
 
     printf("\nCharacter (%c) has appeared most of the time. Total of %d appearances. \n", realCharacter, countArr[maxIndex]);
+}
+
+void swapValues() {
+
+    int a;
+    int b;
+
+    printf("Enter a number for \"a\": ");
+    scanf("%d", &a);
+    printf("Enter a number for \"b\": ");
+    scanf("%d", &b);
+
+    printf("Before swapping: \n");
+    printf("\tVariable (a) = %d \n\tVariable (b) = %d \n" ,a, b);
+
+    a = a + b;
+    b = a - b;
+    a = a - b;
+
+    printf("After swapping: \n");
+    printf("\tVariable (a) = %d \n\tVariable (b) = %d \n" ,a, b);
 }
 
 
