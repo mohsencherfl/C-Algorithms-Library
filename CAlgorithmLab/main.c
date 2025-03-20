@@ -64,6 +64,7 @@
     void countLettersInArray();
     void countCharactersInArray();
     void swapValues();
+    void swapArrayValues();
 
 int main()
 {
@@ -120,6 +121,7 @@ int main()
      countLettersInArray();
      countCharactersInArray();
      swapValues();
+     swapArrayValues();
 
      return 0;
 }
@@ -1710,6 +1712,34 @@ void swapValues() {
 
     printf("After swapping: \n");
     printf("\tVariable (a) = %d \n\tVariable (b) = %d \n" ,a, b);
+}
+
+void swapArrayValues() {
+
+    int arr1[SIZE] = {1,2,3,4,5};
+    int arr2[SIZE] = {6,7,8,9,10};
+
+    for(int i=0; i<SIZE; i++)
+    {
+        arr1[i] = arr1[i] + arr2[i];
+        arr2[i] = arr1[i] - arr2[i];
+        arr1[i] = arr1[i] - arr2[i];
+    }
+
+    printf("arr1 = { ");
+    for(int i=0; i<SIZE; i++)
+    {
+        printf("%d ", arr1[i]);
+    }
+    printf("} \n");
+
+
+    printf("arr2 = { ");
+    for(int i=0; i<SIZE; i++)
+    {
+        printf("%d ", arr2[i]);
+    }
+    printf("} \n");
 }
 
 
